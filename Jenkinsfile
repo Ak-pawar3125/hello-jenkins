@@ -23,13 +23,7 @@ pipeline {
     }
   }
 }
-def run(cmd) {
-  if (isUnix()) {
-    sh cmd
-  } else {
-    bat "set \"PATH=C:\\Users\\vijay\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin;C:\\Program Files\\Amazon\\AWSCLIV2;%PATH%\" && ${cmd}"
-  }
-}
+def run(cmd) { if (isUnix()) { sh cmd } else { bat cmd } }
 
 def awsRun(cmd) {
   withCredentials([
